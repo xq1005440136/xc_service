@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/xc-service-mange-cms/pom.xml" />
         <option value="$PROJECT_DIR$/freemarkertest/pom.xml" />
         <option value="$PROJECT_DIR$/xc-freemarker-test/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq-producer/pom.xml" />
+        <option value="$PROJECT_DIR$/rabbitmq-consumer/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,13 +1,19 @@
 package com.xuecheng.test.freemarker.controller;
 
 import com.xuecheng.test.freemarker.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.*;
 @Controller
 @RequestMapping("/freemarker")
 public class FreemarkerController {
+   @Autowired
+  private  RestTemplate restTemplate;
 
 //    @RequestMapping("/test")
 //    public String test1(Map<String, Object> map) {
@@ -49,6 +55,13 @@ public class FreemarkerController {
 
 
         return "test1";
+    }
+    @RequestMapping("/banner")
+    public String testBanner(Map<String, Object> map) {
+        ResponseEntity<Map> forEntity = restTemplate.getForEntity("http://localhost:31001/config/getModel/5a791725dd573c3574ee333f", Map.class);
+        Map body = forEntity.getBody();
+        map.putAll(body);
+        return "index_banner";
     }
 
 }
